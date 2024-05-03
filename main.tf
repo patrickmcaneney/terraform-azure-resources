@@ -31,12 +31,14 @@ module "hub_and_spoke" {
       environment   = "dev"
       instance      = "001"
       address_space = ["10.100.10.0/24"]
+      virtual_machine = false
     },
     {
       workload      = "app1"
       environment   = "prd"
       instance      = "001"
       address_space = ["10.100.11.0/24"]
+       virtual_machine = false
     }
   ]
 }
