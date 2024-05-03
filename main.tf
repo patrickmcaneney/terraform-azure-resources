@@ -31,7 +31,7 @@ module "hub_and_spoke" {
       environment   = "dev"
       instance      = "001"
       address_space = ["10.100.10.0/24"]
-      virtual_machine = true
+      virtual_machine = false
       linux_virtual_machine = 5
       windows_virtual_machine = 0
     },
