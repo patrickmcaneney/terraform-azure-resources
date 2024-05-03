@@ -52,8 +52,10 @@ jobs:
         tf_actions_version: ${{ env.TF_VERSION }}
         tf_actions_subcommand: 'plan'
         tf_actions_working_dir: "./terraform"
- 
-    - name: Terraform Apply
+
+  
+    apply: 
+      name: Terraform Apply
       if: github.ref == 'refs/heads/main'
       uses: hashicorp/terraform-github-actions@master
       with:
