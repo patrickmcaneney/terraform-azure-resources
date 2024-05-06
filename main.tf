@@ -28,7 +28,7 @@ provider "azurerm" {
   features {}
 }
 
-module "hub_and_spoke" {
+module "hub" {
   providers                               = { azurerm = azurerm.management }
   source                                 = "azurerm/resources/azure//modules/pattern_hub_and_spoke"
   location                               = "eastus"
@@ -47,7 +47,6 @@ module "hub_and_spoke" {
   update_management                      = false
   address_space_spokes = [
     {
-      provider        = azurerm.production
       workload        = "shared"
       environment     = "prd"
       instance        = "001"
@@ -59,6 +58,29 @@ module "hub_and_spoke" {
       environment     = "dev"
       instance        = "001"
       address_space   = ["10.100.10.0/24"]
+      virtual_machine = false
+    }
+  ]
+}
+
+module "Spoke" {
+  providers                               = { azurerm = azurerm.production }
+  source                                 = "azurerm/resources/azure//modules/pattern_hub_and_spoke"
+  location                               = "eastus"
+
+  address_space_spokes = [
+    {
+      workload        = "shared"
+      environment     = "prd"
+      instance        = "001"
+      address_space   = ["10.100.14.0/24"]
+      virtual_machine = false
+    },
+    {
+      workload        = "app1"
+      environment     = "dev"
+      instance        = "001"
+      address_space   = ["10.100.12.0/24"]
       virtual_machine = false
     }
   ]
