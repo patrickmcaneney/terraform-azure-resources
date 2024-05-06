@@ -29,7 +29,7 @@ provider "azurerm" {
 }
 
 module "hub_and_spoke" {
-  provider                               = azurerm.management
+  providers                               = { azurerm = azurerm.management }
   source                                 = "azurerm/resources/azure//modules/pattern_hub_and_spoke"
   location                               = "eastus"
   firewall                               = false
