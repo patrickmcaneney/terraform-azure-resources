@@ -19,7 +19,7 @@ provider "azurerm" {
 }
 
 module "hub_and_spoke" {
-  source                                 = "../modules/pattern_hub_and_spoke"
+  source                                 = "./modules/pattern_hub_and_spoke"
   location                               = "eastus"
   firewall                               = false
   gateway                                = false
@@ -48,6 +48,8 @@ module "hub_and_spoke" {
       instance        = "001"
       address_space   = ["10.100.10.0/24"]
       virtual_machine = false
+       windows_virtual_machine = 2
+
     }
   ]
 }
