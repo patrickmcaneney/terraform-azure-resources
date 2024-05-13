@@ -123,7 +123,7 @@ module "routing" {
 
 module "linux_virtual_machine" {
   source                = "../linux_virtual_machine"
-  count                 = var.linux_virtual_machine ? var.subnet_count : 0
+  count                 = var.linux_virtual_machine
   location              = var.location
   environment           = var.environment
   workload              = var.workload
@@ -140,7 +140,7 @@ module "linux_virtual_machine" {
 
 module "windows_virtual_machine" {
   source                = "../windows_virtual_machine"
-  count                 = var.windows_virtual_machine ? var.subnet_count : 0
+  count                 = var.windows_virtual_machine
   location              = var.location
   environment           = var.environment
   workload              = var.workload
