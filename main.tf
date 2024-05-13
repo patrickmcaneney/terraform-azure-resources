@@ -19,9 +19,9 @@ provider "azurerm" {
 }
 
 module "hub_and_spoke" {
-  source                                 = "./modules/pattern_hub_and_spoke"
+  source                                 = "azurerm/resources/azure//modules/pattern_hub_and_spoke"
   location                               = "eastus"
-  firewall                               = false
+  firewall                               = true
   gateway                                = false
   bastion                                = fasle
   address_space_hub                      = ["10.100.0.0/24"]
@@ -48,7 +48,6 @@ module "hub_and_spoke" {
       instance        = "001"
       address_space   = ["10.100.10.0/24"]
       virtual_machine = false
-       windows_virtual_machine = 2
 
     }
   ]
