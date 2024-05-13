@@ -23,7 +23,7 @@ module "hub_and_spoke" {
   location                               = "eastus"
   firewall                               = true
   gateway                                = false
-  bastion                                = fasle
+  bastion                                = false
   address_space_hub                      = ["10.100.0.0/24"]
   spoke_dns                              = true
   address_space_spoke_dns                = ["10.100.1.0/24"]
