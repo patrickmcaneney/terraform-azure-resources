@@ -19,7 +19,7 @@ provider "azurerm" {
 }
 
 module "hub_and_spoke" {
-  source                                 = "azurerm/resources/azure//modules/pattern_hub_and_spoke"
+  source                                 = "../modules/pattern_hub_and_spoke"
   location                               = "eastus"
   firewall                               = false
   gateway                                = false
