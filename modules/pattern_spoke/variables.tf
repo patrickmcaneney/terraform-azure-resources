@@ -38,14 +38,12 @@ variable "subnet_count" {
 
 variable "linux_virtual_machine" {
   description = "(Optional) Include one Linux VM created per subnet."
-  type        = bool
-  default     = true
+  type        = number
 }
 
 variable "windows_virtual_machine" {
   description = "(Optional) Include one Windows VM created per subnet."
-  type        = bool
-  default     = true
+  type        = number
 }
 
 variable "virtual_machine_size" {
